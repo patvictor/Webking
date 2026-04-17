@@ -1,49 +1,32 @@
-<!DOCTYPE html>
-<html lang="eng">
-<head>
-    <title>WebKing Portfolio</title>
-    <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-<link rel="stylesheet" href="style.css"> 
-<!-- Font Awesome CDN -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<script src="https://unpkg.com/lucide@latest"></script>   
+<header>
+  <div class="container header-wrapper">
 
-</head>
-<body>
+    <div class="logo">
+      <i class="fa-solid fa-crown"></i> Web King
+    </div>
 
-
-
-  <!-- HEADER -->
-  <header>
-    <div class="logo"><i class="fa-solid fa-crown" style="color: #FFD700;"></i> Web King</div>
-
-    <nav>
-      <a href="#about" target="_top">About</a>
+    <nav id="nav">
+      <a href="#about">About</a>
       <a href="#Services">Services</a>
       <a href="#projects">Featured Projects</a>
       <a href="#contact">Contact</a>
-      <a href="https://wa.me/23407078799833?text=Hello%20Webking%2C%20I%20want%20to%20hire%20you%20for%20a%20Project."
-target="_blank" class="hire-btn">
-      Hire Me
-    </a>
+      <a href="https://wa.me/23407078799833" target="_blank" class="hire-btn">
+        Hire Me
+      </a>
     </nav>
 
+    <div class="header-actions">
+      <button id="theme-toggle" class="theme-btn">
+        <i data-lucide="moon"></i>
+      </button>
 
+      <div class="menu-toggle" id="menu-toggle">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+    </div>
 
-<!-- HAMBURGER MENU -->
-
-<div class="header-actions">
-  <button id="theme-toggle" class="theme-btn">
-    <i data-lucide="moon" id="toggle-icon"></i>
-  </button>
-
-  <div class="menu-toggle" id="menu-toggle">
-    <i class="fa-solid fa-bars"></i>
   </div>
-</div>
-  </header>
+</header>
 
   
 <!-- Floating Shapes -->
@@ -86,7 +69,7 @@ target="_blank" class="hire-btn">
 
     <div class="wk-hero-img">
 
-    <img src="evans.jpeg" alt="Profile Image">
+    <img src="images/evans.jpeg" alt="Profile Image">
 <div class="wk-float">
     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" class="figma" data-speed="10" >
     
@@ -701,6 +684,3 @@ document.querySelectorAll('.svc-box').forEach(box=>{
   });
 
 </script>
-</body>
-
-</html>
