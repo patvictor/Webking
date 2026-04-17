@@ -1,0 +1,29 @@
+{
+  "name": "webking-portfolio",
+  "version": "1.0.0",
+  "description": "Web King Portfolio - A modern portfolio website with performance tracking",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python3 -m http.server 8000 || python -m http.server 8000",
+    "test": "echo \"No tests specified\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/patvictor/Webking.git"
+  },
+  "keywords": [
+    "portfolio",
+    "website",
+    "vercel",
+    "speed-insights"
+  ],
+  "author": "Web King",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/patvictor/Webking/issues"
+  },
+  "homepage": "https://github.com/patvictor/Webking#readme",
+  "dependencies": {
+    "@vercel/speed-insights": "^2.0.0"
+  }
+}
