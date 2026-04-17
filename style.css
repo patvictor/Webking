@@ -149,6 +149,14 @@ body.dark .svc-head {
 body.dark .svc-sub {
   color: #aaa;
 }
+/*================
+  HOW I WORK DARK
+================*/
+
+body.dark .wk-process{
+   background: #181822;
+   border: 1px solid #2a2a35;
+}
 
 /* SERVICE BOX */
 body.dark .svc-box {
@@ -320,91 +328,194 @@ body.dark .btn:hover {
 /*================
     HEADER
  ====================*/
- header {
-    position: sticky;
-    top: 0;
-    backdrop-filter: blur(12px);
-    background: rgba(15,15,26,0.7);
-    display: flex;
-    justify-content: space-between;
-    padding: 15px 40px;
-    z-index: 1000;
+/* ========================= */
+/* 🌍 GLOBAL RESET */
+/* ========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* LOGO */
-.logo {
-    font-weight: bold;
-    font-size: 20px;
-    color: white;
+body {
+  overflow-x: hidden;
+  font-family: sans-serif;
 }
 
-/* NAV LINKS */
-nav a {
-    margin: 0 15px;
-    text-decoration: none;
-    color: #ccc;
-    position: relative;
-    transition: 0.3s;
+/* ========================= */
+/* 📦 CONTAINER */
+/* ========================= */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 clamp(15px, 4vw, 30px);
 }
 
-nav a::after {
-    content: "";
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    background: gold;
-    bottom: -5px;
-    left: 0;
-    transition: 0.3s;
-}
-
-nav a:hover {
-    color: #fff;
-}
-
-nav a:hover::after {
-    width: 100%;
-}
-
-/* HEADER BASE */
+/* ========================= */
+/* 🔝 HEADER */
+/* ========================= */
 header {
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 1000;
-  padding: 20px 40px;
+  backdrop-filter: blur(12px);
+  background: rgba(15,15,26,0.7);
   transition: all 0.3s ease;
-  
 }
 
-/* SHRINK EFFECT */
+/* SCROLL EFFECT */
 header.scrolled {
-  padding: 12px 40px;
-  backdrop-filter: blur(10px);
-  background: rgba(0, 0, 0, 0.7);
+  padding: 5px 0;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(8px);
 }
 
-/* NAV DEFAULT */
+/* FLEX */
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: clamp(10px, 2vw, 15px) 0;
+}
+
+/* ========================= */
+/* 👑 LOGO */
+/* ========================= */
+.logo {
+  font-weight: bold;
+  font-size: clamp(16px, 2vw, 20px);
+  color: white;
+}
+
+.logo i {
+  color: #FFD700;
+}
+
+/* ========================= */
+/* 🧭 NAV */
+/* ========================= */
 nav {
   display: flex;
-  gap: 20px;
+  align-items: center;
+  gap: clamp(15px, 2vw, 25px);
 }
 
-/* MOBILE NAV */
-@media (max-width: 1050px) {
+/* LINKS */
+nav a {
+  text-decoration: none;
+  color: #ccc;
+  position: relative;
+  transition: 0.3s;
+  padding: 8px; /* touch friendly */
+}
+
+nav a:hover {
+  color: #fff;
+}
+
+/* UNDERLINE */
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background: gold;
+  bottom: -5px;
+  left: 0;
+  transition: 0.3s;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* ACTIVE */
+nav a.active {
+  color: #FFD700;
+}
+
+nav a.active::after {
+  width: 100%;
+}
+
+/* ========================= */
+/* 🎯 BUTTON */
+/* ========================= */
+.hire-btn {
+  padding: 10px 18px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #6a5cff, #8b3dff);
+  color: white;
+  font-size: clamp(14px, 1.5vw, 16px);
+}
+
+.hire-btn:hover {
+  background: gold;
+  color: black;
+}
+
+/* ========================= */
+/* ⚙️ ACTIONS */
+/* ========================= */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ========================= */
+/* 🍔 MENU ICON */
+/* ========================= */
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.menu-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* ========================= */
+/* 💻 TABLET */
+/* ========================= */
+@media (max-width: 1024px) {
+  nav {
+    gap: 15px;
+  }
+}
+
+/* ========================= */
+/* 📱 MOBILE */
+/* ========================= */
+@media (max-width: 768px) {
+
+  .menu-toggle {
+    display: block;
+  }
+
   nav {
     position: absolute;
-    top: 70px;
+    top: 100%;
     left: 0;
     width: 100%;
+
     flex-direction: column;
     align-items: center;
-    padding: 20px 0;
+    gap: 25px;
 
-    /* GLASS EFFECT */
-    background: rgba(0, 0, 0, 0.6);
+    padding: 25px 0;
+
+    background: rgba(0,0,0,0.8);
     backdrop-filter: blur(12px);
 
+    /* FULL HEIGHT FIX */
+    min-height: calc(100vh - 70px);
+
+    /* ANIMATION */
     transform: translateY(-20px);
     opacity: 0;
     pointer-events: none;
@@ -416,64 +527,24 @@ nav {
     opacity: 1;
     pointer-events: auto;
   }
-}
-/* DEFAULT (LAPTOP / DESKTOP) */
-.menu-toggle {
-  display: none;
-}
 
-
-/* SHOW ONLY ON SMALL SCREENS */
-@media (max-width: 1050px) {
-  .menu-toggle {
-    display: block;
+  nav a {
+    font-size: 18px;
   }
 }
-/* Desktop nav always visible */
-nav {
-  display: flex;
-}
 
-/* Mobile nav hidden until clicked */
-@media (max-width: 1050px) {
+/* ========================= */
+/* 📱 SMALL PHONES */
+/* ========================= */
+@media (max-width: 480px) {
+  .hire-btn {
+    width: 80%;
+    text-align: center;
+  }
+
   nav {
-    display: none;
+    gap: 20px;
   }
-
-  nav.active {
-    display: flex;
-  }
-}
-/* ACTIVE LINK */
-nav a.active {
-  color: #FFD700;
-  position: relative;
-}
-
-nav a.active::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  background: #FFD700;
-  bottom: -5px;
-  left: 0;
-}
-
-
-
-
-/* HIRE BUTTON */
-.hire-btn {
-    padding: 8px 18px;
-    border-radius: 8px;
-    background: linear-gradient(135deg, #6a5cff, #8b3dff);
-    color: white;
-}
-
-.hire-btn:hover {
-    background: gold;
-    color: black;
 }
 
 
@@ -712,27 +783,43 @@ nav a.active::after {
    RESPONSIVE
 ========================= */
 
-/* Tablet */
+/* BASE (desktop-first but fluid) */
+
+
+/* ---------- TABLET & DOWN ---------- */
 @media (max-width: 900px) {
   .wk-hero {
     flex-direction: column;
     text-align: center;
-    padding: 80px 20px;
   }
 
   .wk-hero-img {
-    margin-top: 40px;
+    margin-top: 30px;
+  }
+
+  .wk-buttons {
+    justify-content: center;
   }
 }
 
-/* Mobile */
+/* ---------- MOBILE ---------- */
 @media (max-width: 500px) {
+  .wk-hero {
+    padding: 60px 15px;
+  }
+
   .wk-hero-text h1 {
-    font-size: 36px;
+    font-size: clamp(26px, 7vw, 34px);
   }
 
   .wk-buttons {
     flex-direction: column;
+    width: 100%;
+  }
+
+  .wk-buttons a,
+  .wk-buttons button {
+    width: 100%;
   }
 
   .wk-float {
@@ -769,7 +856,7 @@ nav a.active::after {
 /* GRID */
 .wk-about .cards {
    display: grid;
-   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
    gap: 28px;
 }
 
@@ -1733,207 +1820,5 @@ body.dark .svc-btn {
 
 body.dark #scrollTopBtn:hover {
   background: linear-gradient(135deg, #7c3aed, #5b21b6);
-}
-
-/* =========================
-   UNIVERSAL MOBILE FIX
-   (ADD AT VERY BOTTOM)
-========================= */
-
-/* base fluid scaling */
-html {
-  font-size: 16px;
-}
-
-body {
-  overflow-x: hidden;
-  -webkit-text-size-adjust: 100%;
-}
-
-/* make images responsive everywhere */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* fix padding overflow issues globally */
-section, header, footer {
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-/* =========================
-   TABLET FIX (<= 1024px)
-========================= */
-@media (max-width: 1024px) {
-
-  h1 {
-    font-size: clamp(28px, 4vw, 40px) !important;
-  }
-
-  h2 {
-    font-size: clamp(24px, 3.5vw, 34px) !important;
-  }
-
-  p {
-    font-size: 15px;
-  }
-
-  .wk-hero {
-    padding: 100px 30px;
-    gap: 40px;
-  }
-
-  .feature-section {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .contact-wrapper {
-    grid-template-columns: 1fr !important;
-  }
-}
-
-/* =========================
-   MOBILE FIX (<= 768px)
-========================= */
-@media (max-width: 768px) {
-
-  /* prevent horizontal scroll issues */
-  body {
-    overflow-x: hidden;
-  }
-
-  header {
-    padding: 15px 20px;
-  }
-
-  nav a {
-    margin: 10px 0;
-  }
-
-  /* HERO */
-  .wk-hero {
-    flex-direction: column;
-    text-align: center;
-    padding: 90px 20px;
-  }
-
-  .wk-hero-img {
-    width: 100%;
-    max-width: 320px;
-    height: auto;
-  }
-
-  /* GRID FIXES */
-  .steps,
-  .process-grid,
-  .svc-grid {
-    grid-template-columns: 1fr !important;
-    gap: 25px;
-  }
-
-  /* ABOUT CARDS */
-  .wk-about .cards {
-    grid-template-columns: 1fr;
-  }
-
-  /* PROJECTS */
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
-  /* CONTACT */
-  .contact-wrapper {
-    grid-template-columns: 1fr;
-  }
-
-  /* FEATURE SECTION */
-  .feature-section {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .features {
-    grid-template-columns: 1fr !important;
-  }
-
-  /* BUTTONS */
-  .wk-buttons {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .btn,
-  .wk-btn-primary,
-  .wk-btn-secondary {
-    width: 100%;
-    text-align: center;
-  }
-}
-
-/* =========================
-   SMALL MOBILE (<= 480px)
-========================= */
-@media (max-width: 480px) {
-
-  h1 {
-    font-size: 22px !important;
-  }
-
-  h2 {
-    font-size: 20px !important;
-  }
-
-  p {
-    font-size: 14px;
-  }
-
-  .wk-hero {
-    padding: 80px 15px;
-  }
-
-  .wk-about h1,
-  .wk-process h2 {
-    font-size: 22px;
-  }
-
-  .svc-box {
-    padding: 20px;
-  }
-
-  .project-content {
-    padding: 18px;
-  }
-
-  .contact-form,
-  .contact-info {
-    padding: 18px;
-  }
-
-  /* fix huge spacing issues */
-  .steps,
-  .process-grid {
-    gap: 40px;
-    padding-left: 20px;
-  }
-}
-
-/* =========================
-   ULTRA SMALL FIX (<= 360px)
-========================= */
-@media (max-width: 360px) {
-
-  .wk-hero-text h1 {
-    font-size: 20px !important;
-  }
-
-  .btn,
-  .wk-btn-primary,
-  .wk-btn-secondary {
-    font-size: 13px;
-    padding: 10px;
-  }
 }
 
