@@ -1735,3 +1735,205 @@ body.dark #scrollTopBtn:hover {
   background: linear-gradient(135deg, #7c3aed, #5b21b6);
 }
 
+/* =========================
+   UNIVERSAL MOBILE FIX
+   (ADD AT VERY BOTTOM)
+========================= */
+
+/* base fluid scaling */
+html {
+  font-size: 16px;
+}
+
+body {
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* make images responsive everywhere */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* fix padding overflow issues globally */
+section, header, footer {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* =========================
+   TABLET FIX (<= 1024px)
+========================= */
+@media (max-width: 1024px) {
+
+  h1 {
+    font-size: clamp(28px, 4vw, 40px) !important;
+  }
+
+  h2 {
+    font-size: clamp(24px, 3.5vw, 34px) !important;
+  }
+
+  p {
+    font-size: 15px;
+  }
+
+  .wk-hero {
+    padding: 100px 30px;
+    gap: 40px;
+  }
+
+  .feature-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contact-wrapper {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* =========================
+   MOBILE FIX (<= 768px)
+========================= */
+@media (max-width: 768px) {
+
+  /* prevent horizontal scroll issues */
+  body {
+    overflow-x: hidden;
+  }
+
+  header {
+    padding: 15px 20px;
+  }
+
+  nav a {
+    margin: 10px 0;
+  }
+
+  /* HERO */
+  .wk-hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 90px 20px;
+  }
+
+  .wk-hero-img {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+  }
+
+  /* GRID FIXES */
+  .steps,
+  .process-grid,
+  .svc-grid {
+    grid-template-columns: 1fr !important;
+    gap: 25px;
+  }
+
+  /* ABOUT CARDS */
+  .wk-about .cards {
+    grid-template-columns: 1fr;
+  }
+
+  /* PROJECTS */
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* CONTACT */
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  /* FEATURE SECTION */
+  .feature-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .features {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* BUTTONS */
+  .wk-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn,
+  .wk-btn-primary,
+  .wk-btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* =========================
+   SMALL MOBILE (<= 480px)
+========================= */
+@media (max-width: 480px) {
+
+  h1 {
+    font-size: 22px !important;
+  }
+
+  h2 {
+    font-size: 20px !important;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  .wk-hero {
+    padding: 80px 15px;
+  }
+
+  .wk-about h1,
+  .wk-process h2 {
+    font-size: 22px;
+  }
+
+  .svc-box {
+    padding: 20px;
+  }
+
+  .project-content {
+    padding: 18px;
+  }
+
+  .contact-form,
+  .contact-info {
+    padding: 18px;
+  }
+
+  /* fix huge spacing issues */
+  .steps,
+  .process-grid {
+    gap: 40px;
+    padding-left: 20px;
+  }
+}
+
+/* =========================
+   ULTRA SMALL FIX (<= 360px)
+========================= */
+@media (max-width: 360px) {
+
+  .wk-hero-text h1 {
+    font-size: 20px !important;
+  }
+
+  .btn,
+  .wk-btn-primary,
+  .wk-btn-secondary {
+    font-size: 13px;
+    padding: 10px;
+  }
+}
+
